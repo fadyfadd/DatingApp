@@ -7,6 +7,7 @@ var builder = WebApplication.CreateBuilder(args);
 
  
 builder.Services.AddControllers();
+builder.Services.AddCors();
 builder.Services.AddEndpointsApiExplorer();
 builder.Services.AddSwaggerGen();
 builder.Services.AddDbContext<DataContext>
@@ -19,8 +20,10 @@ var app = builder.Build();
     app.UseSwaggerUI();
 }
 
+  
 
 app.UseHttpsRedirection();
+ app.UseCors(x => x.AllowAnyHeader().AllowAnyMethod().WithOrigins("http://localhost:4200"));
 
 app.UseAuthorization();
 
