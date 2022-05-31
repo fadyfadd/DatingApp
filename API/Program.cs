@@ -8,10 +8,10 @@ using Microsoft.AspNetCore.Authentication.JwtBearer;
 using Microsoft.IdentityModel.Tokens;
 using System.Text;
 using API.Extensions;
-using API.Middleware;
+using API.Middleware;   
 
 var builder = WebApplication.CreateBuilder(args);
-
+ 
 builder.Services.AddScoped<ITokenService , TokenService>();
 
 builder.Services.AddControllers();
@@ -23,6 +23,24 @@ builder.Services.AddSwaggerGen();
 
 builder.Services.AddApplicationServices(builder.Configuration);
 var app = builder.Build();
+ 
+ var scope = app.Services.CreateScope();
+ var Services = scope.ServiceProvider;
+
+var dataContext = Services.GetRequiredService<DataContext>();
+
+ 
+try {
+    await dataContext.Database.MigrateAsync();
+    await Seed.SeedUsers(dataContext);
+}
+
+catch (Exception ex) {
+ var logger = Services.GetRequiredService<ILogger<Program>>();
+                logger.LogError(ex, "An error occurred during migration");
+
+}
+
 
 
  if (app.Environment.IsDevelopment())
@@ -33,6 +51,8 @@ var app = builder.Build();
 
   
 app.UseMiddleware<ExceptionMiddleware>();
+
+ 
 
 app.UseHttpsRedirection();
 app.UseCors(x => x.AllowAnyHeader().AllowAnyMethod().WithOrigins("https://localhost:4200"));
