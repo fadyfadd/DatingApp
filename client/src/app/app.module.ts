@@ -21,6 +21,9 @@ import { ServerErrorComponent } from './errors/server-error/server-error.compone
 import {ToastrModule} from 'ngx-toastr';
 import { MemberCardComponent } from './members/member-card/member-card.component';
 import { JwtInterceptor } from './_interceptors/jwt.interceptor';
+import {NgxGalleryModule} from '@kolkov/ngx-gallery';
+import { TabsModule } from 'ngx-bootstrap/tabs';
+
 
 @NgModule({
   declarations: [
@@ -39,12 +42,14 @@ import { JwtInterceptor } from './_interceptors/jwt.interceptor';
   ],
   imports: [
     BrowserModule,
+    NgxGalleryModule,
     FormsModule,
     AppRoutingModule,
     HttpClientModule,
     BsDropdownModule.forRoot(),
     ToastrModule.forRoot({positionClass:"toast-bottom-right"} ),
-    BrowserAnimationsModule
+    BrowserAnimationsModule,
+    TabsModule.forRoot()
   ],
   providers: [
     {provide: HTTP_INTERCEPTORS, useClass: ErrorInterceptor, multi: true},
