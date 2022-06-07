@@ -10,6 +10,7 @@ using System.Text;
 using API.Extensions;
 using API.Middleware;
 using API.Helpers;
+ 
 
 var builder = WebApplication.CreateBuilder(args);
  
@@ -20,12 +21,15 @@ builder.Services.AddControllers();
 builder.Services.AddCors();
 
 builder.Services.AddIdentityServices(builder.Configuration);
+builder.Services.AddScoped<IPhotoService , PhotoService>();
+
 builder.Services.AddEndpointsApiExplorer();
 builder.Services.AddSwaggerGen();
+builder.Services.Configure<CloudinarySettings>(builder.Configuration.GetSection("CloudinarySettings"));
 
 builder.Services.AddApplicationServices(builder.Configuration);
 var app = builder.Build();
- 
+  
  var scope = app.Services.CreateScope();
  var Services = scope.ServiceProvider;
 
