@@ -16,12 +16,13 @@ var builder = WebApplication.CreateBuilder(args);
  
 builder.Services.AddScoped<ITokenService , TokenService>();
 builder.Services.AddScoped<IUserRepository , UserRepository>();
+builder.Services.AddScoped<IPhotoService , PhotoService>();
+
 builder.Services.AddAutoMapper(typeof(AutoMapperProfiles).Assembly);
 builder.Services.AddControllers();
 builder.Services.AddCors();
 
 builder.Services.AddIdentityServices(builder.Configuration);
-builder.Services.AddScoped<IPhotoService , PhotoService>();
 
 builder.Services.AddEndpointsApiExplorer();
 builder.Services.AddSwaggerGen();
@@ -60,7 +61,7 @@ app.UseMiddleware<ExceptionMiddleware>();
 
  
 
-//app.UseHttpsRedirection();
+app.UseHttpsRedirection();
 app.UseCors(x => x.AllowAnyHeader().AllowAnyMethod().AllowAnyOrigin());
 
 app.UseAuthentication(); 
