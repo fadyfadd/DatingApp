@@ -25,6 +25,7 @@ import {NgxGalleryModule} from '@kolkov/ngx-gallery';
 import { TabsModule } from 'ngx-bootstrap/tabs';
 import { MemberEditComponent } from './members/member-edit/member-edit.component';
 import { PhotoEditorComponent } from './members/photo-editor/photo-editor.component';
+import { FileUploadModule} from "ng2-file-upload"
 
 
 @NgModule({
@@ -53,6 +54,7 @@ import { PhotoEditorComponent } from './members/photo-editor/photo-editor.compon
     BsDropdownModule.forRoot(),
     ToastrModule.forRoot({positionClass:"toast-bottom-right"} ),
     BrowserAnimationsModule,
+    FileUploadModule,
     TabsModule.forRoot()
   ],
   providers: [
