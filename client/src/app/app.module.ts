@@ -26,6 +26,10 @@ import { TabsModule } from 'ngx-bootstrap/tabs';
 import { MemberEditComponent } from './members/member-edit/member-edit.component';
 import { PhotoEditorComponent } from './members/photo-editor/photo-editor.component';
 import { FileUploadModule} from "ng2-file-upload"
+import { ReactiveFormsModule } from '@angular/forms';
+import { DateInputComponent } from './date-input/date-input.component';
+import { TextInputComponent } from './text-input/text-input.component';
+
 
 
 @NgModule({
@@ -43,9 +47,12 @@ import { FileUploadModule} from "ng2-file-upload"
     ServerErrorComponent,
     MemberCardComponent,
     MemberEditComponent,
-    PhotoEditorComponent
+    PhotoEditorComponent,
+    DateInputComponent,
+    TextInputComponent
   ],
   imports: [
+    ReactiveFormsModule,
     BrowserModule,
     NgxGalleryModule,
     FormsModule,

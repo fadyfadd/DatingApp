@@ -34,7 +34,7 @@ namespace API.Controllers
 
         [HttpPost("add-photo")]
         public async Task<ActionResult<PhotoDto>> AddPhoto(IFormFile file)
-        {
+        {  
             var user = await _userRepository.GetUserByUsernameAsync(User.GetUsername());
 
             var result = await _photoService.AddPhotoAsync(file);
@@ -95,7 +95,7 @@ namespace API.Controllers
             return BadRequest("Failed to set main photo");
         }
 
-[HttpDelete("delete-photo/{photoId}")]
+        [HttpDelete("delete-photo/{photoId}")]
         public async Task<ActionResult> DeletePhoto(int photoId)
         {
             var user = await _userRepository.GetUserByUsernameAsync(User.GetUsername());
