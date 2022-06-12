@@ -27,8 +27,10 @@ import { MemberEditComponent } from './members/member-edit/member-edit.component
 import { PhotoEditorComponent } from './members/photo-editor/photo-editor.component';
 import { FileUploadModule} from "ng2-file-upload"
 import { ReactiveFormsModule } from '@angular/forms';
-import { DateInputComponent } from './date-input/date-input.component';
-import { TextInputComponent } from './text-input/text-input.component';
+import { DateInputComponent } from './_forms/date-input/date-input.component';
+import { TextInputComponent } from './_forms/text-input/text-input.component';
+import {BsDatepickerModule} from 'ngx-bootstrap/datepicker';
+
 
 
 
@@ -62,7 +64,8 @@ import { TextInputComponent } from './text-input/text-input.component';
     ToastrModule.forRoot({positionClass:"toast-bottom-right"} ),
     BrowserAnimationsModule,
     FileUploadModule,
-    TabsModule.forRoot()
+    TabsModule.forRoot(),
+    BsDatepickerModule
   ],
   providers: [
     {provide: HTTP_INTERCEPTORS, useClass: ErrorInterceptor, multi: true},
