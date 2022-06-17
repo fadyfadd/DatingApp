@@ -30,6 +30,8 @@ import { ReactiveFormsModule } from '@angular/forms';
 import { DateInputComponent } from './_forms/date-input/date-input.component';
 import { TextInputComponent } from './_forms/text-input/text-input.component';
 import {BsDatepickerModule} from 'ngx-bootstrap/datepicker';
+import { PaginationModule } from 'ngx-bootstrap/pagination';
+
 
 
 
@@ -60,6 +62,7 @@ import {BsDatepickerModule} from 'ngx-bootstrap/datepicker';
     FormsModule,
     AppRoutingModule,
     HttpClientModule,
+    PaginationModule.forRoot(),
     BsDropdownModule.forRoot(),
     ToastrModule.forRoot({positionClass:"toast-bottom-right"} ),
     BrowserAnimationsModule,
