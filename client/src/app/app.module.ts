@@ -31,6 +31,9 @@ import { DateInputComponent } from './_forms/date-input/date-input.component';
 import { TextInputComponent } from './_forms/text-input/text-input.component';
 import {BsDatepickerModule} from 'ngx-bootstrap/datepicker';
 import { PaginationModule } from 'ngx-bootstrap/pagination';
+import { TimeagoModule } from 'ngx-timeago';
+import { ButtonsModule } from 'ngx-bootstrap/buttons';
+
 
 
 
@@ -53,7 +56,8 @@ import { PaginationModule } from 'ngx-bootstrap/pagination';
     MemberEditComponent,
     PhotoEditorComponent,
     DateInputComponent,
-    TextInputComponent
+    TextInputComponent,
+   
   ],
   imports: [
     ReactiveFormsModule,
@@ -68,7 +72,10 @@ import { PaginationModule } from 'ngx-bootstrap/pagination';
     BrowserAnimationsModule,
     FileUploadModule,
     TabsModule.forRoot(),
-    BsDatepickerModule
+    BsDatepickerModule,
+    ButtonsModule.forRoot(),
+    TimeagoModule.forRoot()
+
   ],
   providers: [
     {provide: HTTP_INTERCEPTORS, useClass: ErrorInterceptor, multi: true},
