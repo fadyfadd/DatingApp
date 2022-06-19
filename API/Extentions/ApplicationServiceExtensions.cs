@@ -14,6 +14,8 @@ namespace API.Extensions
         {   
             services.AddScoped<LogUserActivity>();
             services.AddScoped<ITokenService, TokenService>();
+            services.AddScoped<ILikesRepository, LikesRepository>();
+
             services.AddDbContext<DataContext>(options =>
             {
                 options.UseSqlite(config.GetConnectionString("DefaultConnection"));
