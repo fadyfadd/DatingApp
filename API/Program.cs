@@ -11,7 +11,6 @@ using API.Extensions;
 using API.Middleware;
 using API.Helpers;
  
-
 var builder = WebApplication.CreateBuilder(args);
  
 builder.Services.AddScoped<ITokenService , TokenService>();
