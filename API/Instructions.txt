@@ -4,3 +4,4 @@ dotnet ef database update
 dotnet ef migrations add UserPasswordAdded
 dotnet ef migrations add ExtendedUserEntity
 dotnet ef migrations add LikeEntity
+dotnet ef migrations add MessageEntity
