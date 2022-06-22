@@ -16,7 +16,7 @@ var builder = WebApplication.CreateBuilder(args);
 builder.Services.AddScoped<ITokenService , TokenService>();
 builder.Services.AddScoped<IUserRepository , UserRepository>();
 builder.Services.AddScoped<IPhotoService , PhotoService>();
-
+builder.Services.AddScoped<IMessageRepository , MessageRepository>();
 builder.Services.AddAutoMapper(typeof(AutoMapperProfiles).Assembly);
 builder.Services.AddControllers();
 builder.Services.AddCors();
